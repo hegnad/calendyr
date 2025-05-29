@@ -1,0 +1,95 @@
+/* src/components/Calendar/CalendarHeader/CalendarHeader.css */
+
+.calendar-header {
+    margin-bottom: 24px;
+}
+
+.app-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-button {
+    padding: 8px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+    .nav-button:hover {
+        background-color: #f3f4f6;
+    }
+
+.date-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    min-width: 200px;
+    text-align: center;
+    margin: 0;
+}
+
+.view-switcher {
+    display: flex;
+    gap: 8px;
+}
+
+.view-button {
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .view-button:hover {
+        background-color: #f3f4f6;
+    }
+
+    .view-button.active {
+        background-color: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .controls-row {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .navigation {
+        justify-content: center;
+    }
+
+    .view-switcher {
+        justify-content: center;
+    }
+}

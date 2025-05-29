@@ -1,38 +1,246 @@
-.App {
-  text-align: center;
+/* App.css */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-header {
+    margin-bottom: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 16px;
+    margin-top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-button {
+    padding: 8px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+    .nav-button:hover {
+        background-color: #f3f4f6;
+    }
+
+.date-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    min-width: 200px;
+    text-align: center;
+    margin: 0;
+}
+
+.view-switcher {
+    display: flex;
+    gap: 8px;
+}
+
+.view-button {
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .view-button:hover {
+        background-color: #f3f4f6;
+    }
+
+    .view-button.active {
+        background-color: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+
+.calendar-content {
+    margin-bottom: 24px;
+}
+
+.calendar-grid {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.week-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.week-day-header {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #f9fafb;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+    height: 96px;
+    border-right: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.2s;
+}
+
+    .day-cell:hover {
+        background-color: #f9fafb;
+    }
+
+    .day-cell:nth-child(7n) {
+        border-right: none;
+    }
+
+.empty-day {
+    background-color: #f9fafb;
+    cursor: default;
+}
+
+    .empty-day:hover {
+        background-color: #f9fafb;
+    }
+
+.day-cell.today {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.day-number {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.day-cell.today .day-number {
+    color: #2563eb;
+}
+
+.placeholder-view {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 64px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    width: 384px;
+    max-width: 90vw;
+}
+
+.modal-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 0;
+    color: #111827;
+}
+
+.modal-text {
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.close-button {
+    background-color: #6b7280;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .close-button:hover {
+        background-color: #4b5563;
+    }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 16px;
+    }
+
+    .controls-row {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .navigation {
+        justify-content: center;
+    }
+
+    .view-switcher {
+        justify-content: center;
+    }
+
+    .day-cell {
+        height: 64px;
+    }
+
+    .modal-content {
+        margin: 16px;
+    }
 }
